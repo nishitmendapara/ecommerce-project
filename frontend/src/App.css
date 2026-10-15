@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+.slick-prev{
+    left: 25px !important;
+    z-index: 10;
+}
+
+.slick-next{
+    right: 25px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 30px !important;
+    opacity: 1 !important;
+}
+
+.slick-dots{
+    bottom: 3% !important;
+    z-index: 10;
+}
+
+.slick-dots li button:before{
+    font-size: 10px !important; 
+}
+
+.brands-slider .slick-dots {
+    bottom: -5px;
+}
+
+.brands-slider .slick-dots li {
+    margin: 0 2px;
+}
+
+.brands-slider .slick-dots li button:before {
+    font-size: 8px;
+    color: #4f46e5;
+    opacity: 0.3;
+}
+
+.brands-slider .slick-dots li.slick-active button:before {
+    color: #4f46e5;
+    opacity: 1;
+}

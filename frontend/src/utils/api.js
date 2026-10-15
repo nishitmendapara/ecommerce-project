@@ -1,5 +1,5 @@
 const API_BASE =
-  import.meta.env.VITE_API_URL || "https://ecommerce-project-1-bx9m.onrender.com";
+  import.meta.env.VITE_BACKEND_URL || "https://ecommerce-project-1-bx9m.onrender.com";
 
 // Use this for protected API requests.
 export const apiFetch = async (url, options = {}) => {

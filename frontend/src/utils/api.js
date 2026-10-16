@@ -1,5 +1,7 @@
-const API_BASE =
-  import.meta.env.VITE_BACKEND_URL || "https://ecommerce-project-1-bx9m.onrender.com";
+export const API_BASE = (
+  import.meta.env.VITE_BACKEND_URL ||
+  "https://ecommerce-project-1-bx9m.onrender.com"
+).replace(/\/+$/, "");
 
 // Use this for protected API requests.
 export const apiFetch = async (url, options = {}) => {

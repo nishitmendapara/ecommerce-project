@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
+import { API_BASE } from "../utils/api";
 
 function Regi() {
   const [showPassword, setShowPassword] = useState(false);
@@ -55,12 +56,7 @@ function Regi() {
     validationSchema,
 
     onSubmit: async (values) => {
-      console.log("Registration Data:", values);
-
-      // API call can be added here
-      // Example:
-      //
-      const response = await fetch("http://localhost:5000/register", {
+      const response = await fetch(`${API_BASE}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,8 +65,12 @@ function Regi() {
       });
       
       const data = await response.json();
-      console.log(data);
-      navigate("/login")
+      if (!response.ok) {
+        alert(data.message || "Registration failed");
+        return;
+      }
+
+      navigate("/login");
     },
   });
 

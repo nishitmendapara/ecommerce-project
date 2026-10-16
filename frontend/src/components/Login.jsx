@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
+import { API_BASE } from "../utils/api";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +33,7 @@ function Login() {
 
     onSubmit: async (values) => {
       try {
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch(`${API_BASE}/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json", 

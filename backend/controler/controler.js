@@ -11,11 +11,12 @@ const ACCESS_TOKEN_EXPIRES = "15m";
 const REFRESH_TOKEN_EXPIRES = "30d";
 
 const isProduction = process.env.NODE_ENV === "production";
+const cookieSameSite = isProduction ? "none" : "lax";
 
 const accessCookieOptions = {
   httpOnly: true,
   secure: isProduction,
-  sameSite: "lax",
+  sameSite: cookieSameSite,
   path: "/",
   maxAge: 15 * 60 * 1000,
 };
@@ -23,7 +24,7 @@ const accessCookieOptions = {
 const refreshCookieOptions = {
   httpOnly: true,
   secure: isProduction,
-  sameSite: "lax",
+  sameSite: cookieSameSite,
   path: "/",
   maxAge: 30 * 24 * 60 * 60 * 1000,
 };
@@ -31,7 +32,7 @@ const refreshCookieOptions = {
 const clearCookieOptions = {
   httpOnly: true,
   secure: isProduction,
-  sameSite: "lax",
+  sameSite: cookieSameSite,
   path: "/",
 };
 

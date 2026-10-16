@@ -7,7 +7,10 @@ export const getImageUrl = (image) => {
   if (!image) return "/placeholder.png";
 
   if (image.startsWith("http://") || image.startsWith("https://")) {
-    return image;
+    return image.replace(
+      /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?/i,
+      API_BASE
+    );
   }
 
   return `${API_BASE}/images/${encodeURIComponent(image)}`;

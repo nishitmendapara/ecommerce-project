@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaHeart,
   FaMinus,
@@ -8,7 +8,7 @@ import {
   FaArrowRight,
   FaTag,
 } from "react-icons/fa";
-import { apiFetch } from "../utils/api";
+import { apiFetch, getImageUrl } from "../utils/api";
 import { Link } from "react-router-dom";
 
 function Cart() {
@@ -306,13 +306,7 @@ function Cart() {
                         {/* IMAGE */}
                         <div className="relative shrink-0 overflow-hidden rounded-2xl bg-slate-50">
                           <img
-                            src={
-                              item.image
-                                ? `http://localhost:5000/images/${encodeURIComponent(
-                                    item.image
-                                  )}`
-                                : "/placeholder.png"
-                            }
+                            src={getImageUrl(item.image)}
                             alt={item.name}
                             onError={(e) => {
                               e.currentTarget.onerror = null;

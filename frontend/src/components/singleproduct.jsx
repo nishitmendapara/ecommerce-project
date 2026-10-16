@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   FaStar,
@@ -9,9 +9,7 @@ import {
   FaArrowLeft,
   FaBoxOpen,
 } from "react-icons/fa";
-import { apiFetch } from "../utils/api";
-
-const API_BASE = "http://localhost:5000";
+import { apiFetch, getImageUrl } from "../utils/api";
 
 function SingleProduct() {
   const { id } = useParams();
@@ -22,17 +20,6 @@ function SingleProduct() {
   const [addingToCart, setAddingToCart] = useState(false);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-
-  // BUILD PRODUCT IMAGE URL
-  const getImageUrl = (image) => {
-    if (!image) return "/placeholder.png";
-
-    if (image.startsWith("http://") || image.startsWith("https://")) {
-      return image;
-    }
-
-    return `${API_BASE}/images/${image}`;
-  };
 
   // FETCH SINGLE PRODUCT
   useEffect(() => {

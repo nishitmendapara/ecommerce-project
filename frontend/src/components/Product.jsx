@@ -1,12 +1,12 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaHeart,
   FaSearch,
   FaShoppingCart,
   FaStar,
 } from "react-icons/fa";
-import { apiFetch } from "../utils/api";
+import { apiFetch, getImageUrl } from "../utils/api";
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -281,13 +281,7 @@ function Product() {
                   <div className="relative overflow-hidden rounded-2xl bg-linear-to-br from-slate-50 via-indigo-50 to-purple-50">
                     <div className="flex h-60 items-center justify-center">
                       <img
-                        src={
-                          product.image
-                            ? `http://localhost:5000/images/${encodeURIComponent(
-                                product.image
-                              )}`
-                            : "/placeholder.png"
-                        }
+                        src={getImageUrl(product.image)}
                         alt={product.name || "Product"}
                         loading="lazy"
                         onError={(e) => {

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { apiFetch } from "../utils/api";
-
-const API_BASE = "http://localhost:5000";
+import { apiFetch, getImageUrl } from "../utils/api";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -40,18 +38,6 @@ function Products() {
 
     getProducts();
   }, []);
-
-  // ================= PRODUCT IMAGE URL =================
-
-  const getImageUrl = (image) => {
-    if (!image) return "/placeholder.png";
-
-    if (image.startsWith("http://") || image.startsWith("https://")) {
-      return image;
-    }
-
-    return `${API_BASE}/images/${image}`;
-  };
 
   // ================= DISPLAY RATING =================
 

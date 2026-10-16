@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaEdit, FaImage, FaSave, FaTimes, FaArrowLeft } from "react-icons/fa";
-import { apiFetch } from "../utils/api";
+import { apiFetch, getImageUrl } from "../utils/api";
 
 function UpdateProduct() {
   const { id } = useParams();
@@ -67,7 +67,7 @@ function UpdateProduct() {
 
       // Set existing image
       if (productData.image) {
-        setImagePreview(`http://localhost:5000/images/${productData.image}`);
+        setImagePreview(getImageUrl(productData.image));
       }
     } catch (error) {
       console.log("Get Product Error:", error);
@@ -137,7 +137,7 @@ function UpdateProduct() {
     setImage(null);
 
     if (product?.image) {
-      setImagePreview(`http://localhost:5000/images/${product.image}`);
+      setImagePreview(getImageUrl(product.image));
     } else {
       setImagePreview("");
     }

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaSearch,
@@ -9,7 +9,7 @@ import {
   FaBoxOpen,
   FaStar,
 } from "react-icons/fa";
-import { apiFetch } from "../utils/api";
+import { apiFetch, getImageUrl } from "../utils/api";
 
 function AllProduct() {
   const [search, setSearch] = useState("");
@@ -185,11 +185,7 @@ function AllProduct() {
                       {/* IMAGE */}
                       <td className="px-6 py-4">
                         <img
-                          src={
-                            product.image
-                              ? `http://localhost:5000/images/${product.image}`
-                              : "/placeholder.png"
-                          }
+                          src={getImageUrl(product.image)}
                           alt={product.name}
                           className="h-16 w-16 rounded-lg object-cover"
                         />

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
-import { apiFetch } from "../utils/api";
+import { apiFetch, getImageUrl } from "../utils/api";
 
 
 function CartProducts() {
@@ -185,9 +185,7 @@ function CartProducts() {
                   const price = Number(product?.price || 0);
                   const quantity = Number(item.quantity || 0);
 
-                  const imageUrl = product?.image
-                    ? `http://localhost:5000/images/${product.image}`
-                    : "";
+                  const imageUrl = getImageUrl(product?.image);
 
                   return (
                     <tr

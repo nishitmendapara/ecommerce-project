@@ -169,21 +169,6 @@ function Navbar() {
               </Link>
 
               <Link
-                to="/contact"
-                className="
-                  px-4
-                  py-3
-                  rounded-xl
-                  text-sm
-                  font-medium
-                  text-gray-600
-                  hover:bg-gray-50
-                "
-              >
-                Contact Us
-              </Link>
-
-              <Link
                 to="/product"
                 className="
                   px-4
@@ -196,6 +181,21 @@ function Navbar() {
                 "
               >
                 Products
+              </Link>
+
+              <Link
+                to="/contact"
+                className="
+                  px-4
+                  py-3
+                  rounded-xl
+                  text-sm
+                  font-medium
+                  text-gray-600
+                  hover:bg-gray-50
+                "
+              >
+                Contact Us
               </Link>
 
             </div>

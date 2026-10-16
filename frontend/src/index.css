@@ -1,0 +1,7 @@
+.home-hero-slider {
+  overflow-x: clip;
+}
+
+.home-hero-slider .slick-next {
+  right: 25px !important;
+}

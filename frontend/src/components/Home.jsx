@@ -31,7 +31,7 @@ function Home() {
 
   return (
     <>
-      <div className="position-absolute">
+      <div className="position-absolute home-hero-slider">
         <Slider {...settings}>
           <div>
             <div>
